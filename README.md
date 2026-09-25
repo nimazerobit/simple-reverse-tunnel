@@ -17,8 +17,8 @@ It uses `github.com/hashicorp/yamux` to multiplex multiple connections over a si
 ## Build Instructions
 1. Clone the repository.
 ```shell
-git clone https://github.com/nimazerobit/simple-tunnel.git
-cd simple-tunnel
+git clone https://github.com/nimazerobit/simple-reverse-tunnel.git
+cd simple-reverse-tunnel
 ```
 2. Download the required dependencies:
 ```
