@@ -45,19 +45,23 @@ $env:GOOS="linux"; $env:GOARCH="amd64"; go build -o tunnel
 1. On Server
    The server needs to listen on two ports: one for incoming connections (-local), and one for the tunnel connection (-public).
    
+   ```bash
    ./tunnel server -local :6000 -public :5000 -secret "YOUR_SECRET_KEY"
+   ```
 
-   -local : Address to listen on for incoming traffic.
-   -public: Address to listen on for the tunnel connection.
+   -local : Address to listen on for incoming traffic.\
+   -public: Address to listen on for the tunnel connection.\
    -secret: The shared secret key for authenticating the tunnel.
 
-2. On Client
+3. On Client
    The client connects to the server's tunnel address and forwards traffic to your local service.
 
+   ```bash
    ./tunnel client -server VPS_IP:5000 -local 127.0.0.1:10808 -secret "YOUR_SECRET_KEY"
+   ```
 
-   -server: The address of the server's tunnel listener (matches server's -public flag).
-   -local : The address of the local service you want to expose (e.g., v2ray proxy on your client machine).
+   -server: The address of the server's tunnel listener (matches server's -public flag).\
+   -local : The address of the local service you want to expose (e.g., v2ray proxy on your client machine).\
    -secret: The shared secret key must match the server's secret.
 
 > [!NOTE]
